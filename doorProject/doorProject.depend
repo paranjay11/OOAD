@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1589818745 source:e:\ooda\doorproject\main.cpp
+	<iostream>
+	<string>
+	<chrono>
+	<thread>
+	<vector>
+	<cctype>
+
