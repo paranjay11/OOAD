@@ -1,0 +1,43 @@
+public class ParkingTicket{
+	private String id;
+	private ParkingStatus parkingStatus;
+	private String  vehicleId;// 
+	private Cell cell;
+	private int time;
+	private PaymentStatus paymentStatus;
+
+
+	public ParkingTicket(String id,ParkingStatus parkingStatus , String vehicleId, Cell cell,int Time){
+		this.id=id;
+		this.parkingStatus=parkingStatus;
+		this.vehicleId=vehicleId;
+		this.cell=cell;
+		this.time=time;
+	}
+
+
+	public String getVehicleId(){
+		return vehicleId;
+	}
+
+	public String getParkingTicketId(){
+		return id;
+	}
+
+	public ParkingStatus getParkingStatus(){
+		return parkingStatus;
+	}
+
+	public Cell getCell(){
+		return cell;
+	}
+
+	public int getParkingTime(){
+		return time;
+	}
+
+	public void setPaymentStatus(PaymentStatus paymentStatus){
+		this.paymentStatus=paymentStatus;
+	}
+
+}

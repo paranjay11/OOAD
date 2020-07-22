@@ -1,0 +1,74 @@
+package parkingLotDesign;
+public enum ParkingSpotType{
+	HANDICAPPED,COMPACT,LARGE,MOTORBIKE,ELECTRIC
+}
+
+public enum VehicleType{
+	CAR,TRUCK,ELECTRIC,VAN,MOTORBIKE
+}
+
+public enum ParkingStatus{
+	OCCUPIED,FREE
+}
+
+public enum AccountType{
+	CUSTOMER,ATTENDEE
+}
+
+//public class Address{
+//	private String address;
+//
+//	public Address(String str){
+//		this.address=str;
+//	}
+//
+//	public String getAddress(){
+//		return address;
+//	}
+//
+//}
+
+
+public class Constants{
+	private Long id;
+	// private String vehicleId;
+	private ParkingStatus parkingStatus;
+	private ParkingSpotType parkingSpotType;
+
+	private static Long count;
+	public Constants(){
+		this.id=++count;
+	}
+
+	// public String getVehicleId(){
+	// 	return this.vehicleId;
+	// }
+
+	public Long getId(){
+		return id;
+	}
+	public ParkingSpotType getParkingSpotType(){
+		return parkingSpotType;
+	}
+
+	public ParkingStatus getParkingStatus(){
+		return parkingStatus;
+	}
+
+	public void setParkingStatus(ParkingStatus status){
+		this.parkingStatus=status;
+	}
+
+	public void setParkingSpotType(ParkingSpotType type){
+		this.parkingSpotType=type;
+	}
+
+	// public void setVehicleId(String id){
+	// 	this.vehicleId;
+	// }
+}
+
+//public interface Account{
+//	String vehicleId;
+//	AccountType accountType;
+//}

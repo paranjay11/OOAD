@@ -1,0 +1,6 @@
+package parkingLotDesign;
+
+public class Display{
+	int[] displaySpotType;
+	
+}

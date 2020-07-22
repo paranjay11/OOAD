@@ -1,0 +1,10 @@
+package parkingLotDesign;
+
+import java.util.ArrayList;
+
+public class Display{
+	ArrayList<Integer> displaySpotType;
+	
+	
+	
+}

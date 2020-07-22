@@ -1,0 +1,48 @@
+package parkingLotDesign;
+
+import parkingLotDesign.Constants.ParkingSpotType;
+import parkingLotDesign.Constants.ParkingStatus;
+
+public class Cell{
+	private Long id;
+	// private String vehicleId;
+	private ParkingStatus parkingStatus;
+	private ParkingSpotType parkingSpotType;
+
+	private static Long count;
+	public Cell(){
+		this.id=++count;
+	}
+
+	// public String getVehicleId(){
+	// 	return this.vehicleId;
+	// }
+
+	public Long getId(){
+		return id;
+	}
+	public ParkingSpotType getParkingSpotType(){
+		return parkingSpotType;
+	}
+
+	public ParkingStatus getParkingStatus(){
+		return parkingStatus;
+	}
+
+	public void setParkingStatus(ParkingStatus status){
+		this.parkingStatus=status;
+	}
+
+	public void setParkingSpotType(ParkingSpotType type){
+		this.parkingSpotType=type;
+	}
+
+	// public void setVehicleId(String id){
+	// 	this.vehicleId;
+	// }
+}
+
+//public interface Account{
+//	String vehicleId;
+//	AccountType accountType;
+//}

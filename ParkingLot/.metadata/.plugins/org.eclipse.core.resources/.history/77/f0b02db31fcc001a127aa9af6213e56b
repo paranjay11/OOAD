@@ -1,0 +1,98 @@
+package parkingLotDesign;
+
+import parkingLotDesign.Constants.ParkingSpotType;
+import parkingLotDesign.Constants.ParkingStatus;
+
+public class ParkingLotMain {
+	static public void main(String[] args) {
+		ParkingLot parkingLot=ParkingLot.getParkingLotInstance();
+		ParkingFloor floor1=new ParkingFloor();
+		int[] cap=new int[ParkingSpotType.values().length];
+		cap[0]=3;
+		cap[1]=1;
+		cap[2]=0;
+		cap[3]=0;
+		cap[4]=0;
+		Long ticketId;
+		floor1.setCapacityOfMatrix(cap);
+		Cell cell_1=new Cell();
+		cell_1.setParkingSpotType(ParkingSpotType.HANDICAPPED);
+		cell_1.setParkingStatus(ParkingStatus.FREE);
+		floor1.addParkingSpot(ParkingSpotType.HANDICAPPED, cell_1);
+//		System.out.println(cell_1.getId());
+		
+		
+		Cell cell_2=new Cell();
+		cell_2.setParkingSpotType(ParkingSpotType.HANDICAPPED);
+		cell_2.setParkingStatus(ParkingStatus.FREE);
+		floor1.addParkingSpot(ParkingSpotType.HANDICAPPED, cell_2);
+		
+		Cell cell_4=new Cell();
+		cell_4.setParkingSpotType(ParkingSpotType.HANDICAPPED);
+		cell_4.setParkingStatus(ParkingStatus.FREE);
+		floor1.addParkingSpot(ParkingSpotType.HANDICAPPED, cell_4);
+		
+		
+		Cell cell_3=new Cell();
+		cell_3.setParkingSpotType(ParkingSpotType.COMPACT);
+		cell_3.setParkingStatus(ParkingStatus.FREE);
+		floor1.addParkingSpot(ParkingSpotType.COMPACT, cell_3);
+//		System.out.println(cell_3.getId());
+		
+		parkingLot.addFloor(floor1);
+		
+		System.out.println("Customer enters....");
+		Account cust1= new Customer();
+		cust1.setVehicleId("UHO 7069");
+		cust1.setAddress("SouthCity, Saharanpur,UP-247001");
+		cust1.setParkingSpotType(ParkingSpotType.HANDICAPPED);
+		cust1.setPaymentMethod(new Cash());
+		if(parkingLot.isAvailable(cust1.getParkingSpotType())) {
+			ticketId=parkingLot.issueParkingTicket(cust1, 10L);
+			cust1.setTicketId(ticketId);
+			System.out.println(ticketId);
+		}
+		else {
+			System.out.println("Sorry no place available in the category");
+		}
+		
+		
+		
+		System.out.println("Customer enters....");
+		Account cust2= new Customer();
+		cust2.setVehicleId("UHO 7069");
+		cust2.setAddress("SouthCity, Saharanpur,UP-247001");
+		cust2.setParkingSpotType(ParkingSpotType.HANDICAPPED);
+		cust1.setPaymentMethod(new Cash());
+		if(parkingLot.isAvailable(cust2.getParkingSpotType())) {
+			ticketId=parkingLot.issueParkingTicket(cust2, 11L);
+			cust1.setTicketId(ticketId);
+			System.out.println(ticketId);
+		}
+		else {
+			System.out.println("Sorry no place available in the category");
+		}
+		
+		
+		System.out.println("Customer enters....");
+		Account cust3= new Customer();
+		cust3.setVehicleId("UHO 7069");
+		cust3.setAddress("SouthCity, Saharanpur,UP-247001");
+		cust3.setParkingSpotType(ParkingSpotType.COMPACT);
+		
+		if(parkingLot.isAvailable(cust3.getParkingSpotType())) {
+			ticketId=parkingLot.issueParkingTicket(cust3, 11L);
+			cust1.setTicketId(ticketId);
+			System.out.println(ticketId);
+		}
+		else {
+			System.out.println("Sorry no place available in the category");
+		}
+		
+		
+		System.out.println("atleast compilation happenend");
+		
+//		Account customer1=new Customer();
+		
+	}
+}

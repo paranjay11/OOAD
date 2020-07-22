@@ -1,0 +1,8 @@
+package parkingLotDesign;
+
+public interface Account {
+	void setVehicleId(String vehicleId);
+	void setAddress(String address);
+	String getVehicleId();
+}
+

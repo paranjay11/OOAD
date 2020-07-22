@@ -1,0 +1,47 @@
+package parkingLotDesign;
+
+import parkingLotDesign.Constants.ParkingSpotType;
+
+public class Customer implements Account{
+	private Address address;
+	private ParkingSpotType parkingSpotTYpe;
+	private String vehicleId;
+	private Long ticketId;
+
+	@Override
+	public void setVehicleId(String vehicleId) {
+		this.vehicleId=vehicleId;
+	}
+
+	@Override
+	public void setAddress(String address) {
+		this.address=address;
+	}
+
+	@Override
+	public String getVehicleId() {
+		return this.vehicleId;
+	}
+
+	public Long getTicketId() {
+		return ticketId;
+	}
+
+	public void setTicketId(Long ticketId) {
+		this.ticketId = ticketId;
+	}
+
+	public ParkingSpotType getParkingSpotTYpe() {
+		return parkingSpotTYpe;
+	}
+
+	public void setParkingSpotTYpe(ParkingSpotType parkingSpotTYpe) {
+		this.parkingSpotTYpe = parkingSpotTYpe;
+	}
+	
+	
+	
+	
+	
+}
+

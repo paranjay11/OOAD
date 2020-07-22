@@ -1,0 +1,26 @@
+package parkingLotDesign;
+
+public class Customer implements Account{
+	private Address address;
+	private String vehicleId;
+
+	@Override
+	public void setVehicleId(String vehicleId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setAddress(Address address) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getVehicleId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+}
+

@@ -1,0 +1,77 @@
+package parkingLotDesign;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+import parkingLotDesign.Constants.ParkingSpotType;
+import parkingLotDesign.Constants.ParkingStatus;
+
+public class ParkingFloor{
+	private HashMap<ParkingSpotType,HashMap<Long,Cell>> matrix;
+	private int[] capacityOfMatrix;
+	private int[] occupancyOfMatrix;
+	private int[] freeSpace;
+	private Display display;
+
+
+	public ParkingFloor(){
+		this.matrix=new HashMap<ParkingSpotType,HashMap<Long,Cell>>();
+		for(ParkingSpotType spotType:ParkingSpotType.values()) {
+			matrix.put(spotType, new HashMap<Long,Cell>());
+		}
+		this.capacityOfMatrix=new int[ParkingSpotType.values().length];
+		this.occupancyOfMatrix=new int[ParkingSpotType.values().length];
+		this.freeSpace=new int[ParkingSpotType.values().length];
+		this.display=new Display();
+	}
+
+	public void setCapacityOfMatrix(int[] capacityOfMatrix){
+		capacityOfMatrix=capacityOfMatrix.clone();
+	}
+
+	public void addParkingSpot(ParkingSpotType spotTypparkingSpotTypee,Cell cell){
+		matrix.get(spotTypparkingSpotTypee).put(cell.getId(),cell);
+	}
+
+	public void removeParkingSpot(ParkingSpotType parkingSpotType,Cell cell){
+		matrix.get(parkingSpotType).remove(cell.getId());
+	}
+
+	public Cell getCell(ParkingSpotType parkingSpotType){
+		Cell ans=null;
+		HashMap<Long,Cell> temp=matrix.get(parkingSpotType);
+		for(Map.Entry mapElement : temp.entrySet()){
+			ParkingStatus check=(ParkingStatus)((Cell) mapElement.getValue()).getParkingStatus();
+
+			if(check==ParkingStatus.FREE){
+				return (Cell) mapElement.getValue();
+			}
+		}
+		if(ans!=null) {
+			occupancyOfMatrix[parkingSpotType.ordinal()]--;
+			freeSpace[parkingSpotType.ordinal()] = capacityOfMatrix[parkingSpotType.ordinal()] - occupancyOfMatrix[parkingSpotType.ordinal()];
+			display.update(freeSpace);
+		}
+		
+		
+		return ans;
+	}
+
+	public void updateMatrix(Cell cell ,ParkingStatus parkingStatus){
+		ParkingSpotType temp=cell.getParkingSpotType();
+		cell.setParkingStatus(parkingStatus);
+		occupancyOfMatrix[temp.ordinal()]++;
+	}
+
+	public boolean isParkingSpotAvailable(ParkingSpotType parkingSpotType){
+		return (capacityOfMatrix[parkingSpotType.ordinal()] - occupancyOfMatrix[parkingSpotType.ordinal()])>0?true:false;
+	}
+
+	public Display getDisplay() {
+		return display;
+	}
+
+
+}
+

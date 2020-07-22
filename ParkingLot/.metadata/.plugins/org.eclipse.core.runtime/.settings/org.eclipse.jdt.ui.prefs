@@ -1,0 +1,7 @@
+content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"><lhs name\="java.lang.Enum"><rhs name\="parkingLotDesign.Constants$ParkingStatus"/><rhs name\="parkingLotDesign.Constants$ParkingSpotType"/><rhs name\="parkingLotDesign.Constants$PaymentStatus"/></lhs><lhs name\="java.lang.constant.Constable"><rhs name\="parkingLotDesign.Constants$ParkingStatus"/><rhs name\="parkingLotDesign.Constants$ParkingSpotType"/><rhs name\="parkingLotDesign.Constants$PaymentStatus"/></lhs><lhs name\="parkingLotDesign.Constants$ParkingStatus"><rhs name\="parkingLotDesign.Constants$ParkingStatus"/></lhs><lhs name\="parkingLotDesign.Constants$ParkingSpotType"><rhs name\="parkingLotDesign.Constants$ParkingSpotType"/></lhs><lhs name\="parkingLotDesign.Constants$PaymentStatus"><rhs name\="parkingLotDesign.Constants$PaymentStatus"/></lhs></history>
+content_assist_number_of_computers=16
+eclipse.preferences.version=1
+org.eclipse.jdt.ui.formatterprofiles.version=19
+spelling_locale_initialized=true
+useAnnotationsPrefPage=true
+useQuickDiffPrefPage=true

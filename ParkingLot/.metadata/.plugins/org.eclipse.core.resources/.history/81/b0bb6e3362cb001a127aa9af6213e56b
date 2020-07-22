@@ -1,0 +1,35 @@
+package parkingLotDesign;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import parkingLotDesign.Constants.ParkingSpotType;
+
+public class ParkingLot{
+	static private ArrayList<ParkingFloor> floors;
+	private HashMap<String,ParkingTicket> customers;
+
+	private ParkingLot(){
+		floors=new ArrayList<ParkingFloor>();
+		customers=new HashMap<String,ParkingTicket>();
+	}
+
+	public void addFloor(ParkingFloor parkingFloor){
+		floors.add(parkingFloor);
+	}
+
+	public void removeFloor(ParkingFloor parkingFloor){
+		floors.remove(parkingFloor);
+	}
+
+	static boolean isAvailable(ParkingSpotType parkingSpotType){
+		for(int i=0;i<floors.size();i++){
+			ParkingFloor temp=floors.get(i);
+			if(temp.isParkingSpotAvailable(parkingSpotType)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+}

@@ -1,0 +1,22 @@
+package parkingLotDesign;
+
+import parkingLotDesign.Constants.ParkingSpotType;
+
+public class ParkingLotMain {
+	static public void main(String[] args) {
+		ParkingLot parkingLot=ParkingLot.getParkingLotInstance();
+		ParkingFloor floor1=new ParkingFloor();
+		int[] cap=new int[ParkingSpotType.values().length];
+		cap[0]=2;
+		cap[1]=1;
+		cap[2]=0;
+		cap[3]=0;
+		cap[4]=0;
+		
+		floor1.setCapacityOfMatrix(cap);
+		System.out.println("atleast compilation happenend");
+		
+//		Account customer1=new Customer();
+		
+	}
+}

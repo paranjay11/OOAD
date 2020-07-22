@@ -1,0 +1,36 @@
+package parkingLotDesign;
+
+public class Customer implements Account{
+	private Address address;
+	private String vehicleId;
+	private Long ticketId;
+
+	@Override
+	public void setVehicleId(String vehicleId) {
+		this.vehicleId=vehicleId;
+	}
+
+	@Override
+	public void setAddress(Address address) {
+		this.address=address;
+	}
+
+	@Override
+	public String getVehicleId() {
+		return this.vehicleId;
+	}
+
+	public Long getTicketId() {
+		return ticketId;
+	}
+
+	public void setTicketId(Long ticketId) {
+		this.ticketId = ticketId;
+	}
+	
+	
+	
+	
+	
+}
+

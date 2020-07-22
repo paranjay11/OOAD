@@ -1,0 +1,58 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+import parkingLotDesign.Constants.ParkingSpotType;
+import parkingLotDesign.Constants.ParkingStatus;
+
+public class ParkingFloor{
+	private ArrayList<ParkingSpotType,HashMap<Long,Cell>> matrix;
+	private int[] capacityOfMatrix;
+	private int[] occupancyOfMatrix;
+	private Display display;
+
+
+	public ParkingFloor(){
+		this.matrix=new ArrayList<HashMap<Long,Cell>>[ParkingSpotType.value().length()];
+		this.capacityOfMatrix=new int[ParkingSpotType.value().length()];
+		this.occupancyOfMatrix=new int[ParkingSpotType.value().length()];
+		this.display=new Display();
+	}
+
+	public void setCapacityOfMatrix(int[] capacityOfMatrix){
+		capacityOfMatrix=capacityOfMatrix.clone();
+	}
+
+	public void addParkingSpot(ParkingSpotType spotType,Cell cell){
+		matrix.get(spotType).put(cell.getId(),cell);
+	}
+
+	public void removeParkingSpot(ParkingSpotType spotType,Cell cell){
+		matrix.get(spotType).remove(cell.getId());
+	}
+
+	public Cell getCell(ParkingSpotType spotType){
+		HashMap<Long,Cell> temp=matrix.get(spotType);
+		for(Map.Entry<Long,Cell> mapElement = temp.entrySet()){
+			ParkingStatus check=mapElement.getValue().getParkingStatus();
+
+			if(check==ParkingStatus.FREE){
+				return mapElement.getValue();
+			}
+		}
+		occupancyOfMatrix[spotType]--;
+	}
+
+	public void updateMatrix(Cell cell ,ParkingStatus spotStatus){
+		ParkingSpotType temp=cell.getParkingSpotType();
+		cell.setParkingStatus(spotStatus);
+		occupancyOfMatrix[temp]++;
+	}
+
+	public boolean isParkingSpotAvailable(ParkingSpotType spotType){
+		return (capacityOfMatrix[spotType] - occupancyOfMatrix[spotType])>0?true:false;
+	}
+
+
+}
+

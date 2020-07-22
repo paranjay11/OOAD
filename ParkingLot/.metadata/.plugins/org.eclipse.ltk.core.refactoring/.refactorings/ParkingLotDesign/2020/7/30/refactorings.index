@@ -1,0 +1,11 @@
+1595336636205	Delete element
+1595337616528	Rename compilation unit 'Constants.java'
+1595337769604	Copy compilation unit
+1595340743530	Infer generic type arguments
+1595359664923	Delete element
+1595359796924	Encapsulate field 'address'
+1595398591944	Encapsulate field 'ticketId'
+1595398772309	Encapsulate field 'parkingSpotTYpe'
+1595422906822	Encapsulate field 'parkingFloor'
+1595423835400	Rename compilation unit 'PaymentGateway.java'
+1595424398075	Encapsulate field 'paymentMethod'

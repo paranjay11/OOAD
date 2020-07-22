@@ -1,0 +1,11 @@
+package parkingLotDesign;
+
+public class Cash implements PaymentMethod {
+
+	@Override
+	public boolean pay() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+}

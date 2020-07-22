@@ -1,0 +1,23 @@
+package parkingLotDesign;
+
+public class Constants{
+	public enum ParkingSpotType{
+		HANDICAPPED,COMPACT,LARGE,MOTORBIKE,ELECTRIC
+	}
+
+	public enum VehicleType{
+		CAR,TRUCK,ELECTRIC,VAN,MOTORBIKE
+	}
+
+	public enum ParkingStatus{
+		OCCUPIED,FREE
+	}
+
+	public enum AccountType{
+		CUSTOMER,ATTENDEE
+	}
+	
+	public enum PaymentStatus{
+		DUE,FREE
+	}
+}

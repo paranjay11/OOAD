@@ -1,0 +1,24 @@
+package parkingLotDesign;
+
+public class Customer implements Account{
+	private Address address;
+	private String vehicleId;
+
+	@Override
+	public void setVehicleId(String vehicleId) {
+		this.vehicleId=vehicleId;
+	}
+
+	@Override
+	public void setAddress(Address address) {
+		this.address=address;
+	}
+
+	@Override
+	public String getVehicleId() {
+		
+		return this.vehicleId;
+	}
+	
+}
+
