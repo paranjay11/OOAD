@@ -82,6 +82,7 @@ public class Users {
 	public void checkOut() {
 		shipments=cart.checkOut(this.payMethod);
 		site.processShipment(shipments);
+		System.out.println("Thank you for shopping with us <3");
 	}
 
 	public Integer getUserId() {

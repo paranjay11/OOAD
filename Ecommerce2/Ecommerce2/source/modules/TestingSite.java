@@ -32,7 +32,7 @@ public class TestingSite {
 		user1.addToCart(constants.new orderPair("SGB6",2));
 //		user1.addToCart(constants.new orderPair("SGB4",1));
 		
-		
+		user1.checkOut();
 	}
 
 }

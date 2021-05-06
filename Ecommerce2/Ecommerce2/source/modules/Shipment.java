@@ -12,7 +12,7 @@ public class Shipment {
 		super();
 		this.shipmentId = String.valueOf(userId)+paymentId;
 		this.order = order;
-		//this.position = position;
+		this.position = new ArrayList<String>();
 		this.paymentId=paymentId;
 	}
 	public String getShipmentId() {

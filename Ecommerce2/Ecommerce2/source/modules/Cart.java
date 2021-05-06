@@ -29,9 +29,9 @@ public class Cart {
 		for(Map.Entry<String,Orders> item : orders.entrySet()) {
 			
 			String payId=payGateway.pay(payMethod, item.getValue().getProduct().getPrice(), item.getValue().getProduct().getProductId());
-			
+			System.out.println("Payment is being processed for "+ item.getValue().getProduct().getName() + " with orderID: "+item.getValue().getOrderId() );
 			item.getValue().setStatus(orderStatus.PROCESSING);
-			
+			System.out.println("the order is getting ready for the shipment....");
 			Shipment temp=new Shipment(this.cartId,item.getValue(),payId);
 			temp.updatePosition("seller's Address");
 			res.put(temp.getShipmentId(), temp);	
