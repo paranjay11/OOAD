@@ -23,9 +23,15 @@ public class CommerceSite {
 		this.users=new HashMap<Integer,Users>();
 	}
 	
+	// thread safe singleton pattern with double-check
 	public static CommerceSite getSiteInstance() {
-		if(commerceSiteInstance==null) {
-			commerceSiteInstance=new CommerceSite();
+		if(commerceSiteInstance==null) {// for the first time it will be slow otherwise other threads
+			                            // will jump over this condition and get the instance.
+			synchronized(CommerceSite.class) {// synchronized over the class object
+				if(commerceSiteInstance==null) {
+					commerceSiteInstance=new CommerceSite();
+				}
+			}
 		}
 		return commerceSiteInstance;
 	}
@@ -59,25 +65,38 @@ public class CommerceSite {
 		}
 	}
 	
-	public void addProduct(String prodId,String name,String desc,String seller,Integer quantity,Integer price,productCategory category) {
-		Product prod=new Product(prodId,name,desc,seller,quantity,price,category);
-		prods.put(prodId,prod);
-		if(productsInCategory.containsKey(category)==true) {
-			productsInCategory.get(category).add(prod);
-		}
-		else {
-			ArrayList<Product> items = new ArrayList<Product>();
-			items.add(prod);
-			productsInCategory.put(category,items);
-		}
+	public Product getProduct(String prodId) {
 		
-		if(productsByNames.containsKey(name)==true) {
-			productsByNames.get(name).add(prod);
+		return prods.get(prodId);
+	}
+	
+	synchronized public boolean addProduct(String prodId,String name,String desc,String seller,Integer quantity,Integer price,productCategory category) {
+		if(prods.containsKey(prodId)==true) {
+			System.out.println("This product"+ prodId +" is already present in the site");
+			return false;
 		}
 		else {
-			ArrayList<Product> items = new ArrayList<Product>();
-			items.add(prod);
-			productsByNames.put(prodId,items);
+			Product prod=new Product(prodId,name,desc,seller,quantity,price,category);
+			prods.put(prodId,prod);
+			if(productsInCategory.containsKey(category)==true) {
+				productsInCategory.get(category).add(prod);
+			}
+			else {
+				ArrayList<Product> items = new ArrayList<Product>();
+				items.add(prod);
+				productsInCategory.put(category,items);
+			}
+			
+			if(productsByNames.containsKey(name)==true) {
+				productsByNames.get(name).add(prod);
+			}
+			else {
+				ArrayList<Product> items = new ArrayList<Product>();
+				items.add(prod);
+				productsByNames.put(prodId,items);
+			}
+			return true;
+			
 		}
 		
 	}
@@ -87,7 +106,7 @@ public class CommerceSite {
 	}
 	
 	
-	public void processShipment(HashMap<String,Shipment> shipments) {
+	synchronized public void processShipment(HashMap<String,Shipment> shipments) {
 		for(Map.Entry<String, Shipment> k:shipments.entrySet()) {
 			Orders ord = k.getValue().getOrder();
 			Product prod = ord.getProduct();

@@ -6,6 +6,8 @@ import modules.Constants.productCategory;
 
 public class Product {
 	
+	
+
 	public String productId;
 	public String name;
 	public String desc;
@@ -67,6 +69,11 @@ public class Product {
 	public void addReviews(Reviews review) {
 		this.reviews.add(review);
 	}
-
+	
+	@Override
+	public String toString() {
+		return "Product [productId=" + productId + ", name=" + name + ", desc=" + desc + ", category=" + category
+				+ ", seller=" + seller + ", quantity=" + quantity + ", price=" + price + "]";
+	}
 
 }

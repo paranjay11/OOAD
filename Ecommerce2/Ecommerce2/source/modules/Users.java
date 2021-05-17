@@ -11,6 +11,8 @@ import modules.Constants.productCategory;
 import modules.Constants.queryType;
 
 public class Users {
+	
+
 	public Integer userId;
 	public String name;
 	public String address;
@@ -60,10 +62,10 @@ public class Users {
 			Product prod=site.getProduct(product.getProductId(),product.getQuantity());
 			if(prod!=null)	{
 				cart.addOrders(prod,product.getQuantity());
-				System.out.println("Product has been added to the cart"+ prod.getProductId());
+				System.out.println("Product has been added to the cart : "+ prod.getProductId()+" for the user : "+ userId);
 			}
 			else {
-				System.out.println("Product could not be added to the cart ");
+				System.out.println("Product could not be added to the cart : "+product.getProductId()+" for the user : "+userId);
 			}
 	}
 	
@@ -82,9 +84,15 @@ public class Users {
 	public void checkOut() {
 		shipments=cart.checkOut(this.payMethod);
 		site.processShipment(shipments);
-		System.out.println("Thank you for shopping with us");
+		System.out.println("Thank you for shopping with us : "+userId);
 	}
 
+	
+	@Override
+	public String toString() {
+		return "Users [userId=" + userId + ", name=" + name + ", address=" + address + ", number=" + number + "]";
+	}
+	
 	public Integer getUserId() {
 		return userId;
 	}
