@@ -191,13 +191,13 @@ public:
     void addInstrument(string serial,double price,InstrumentSpecs *specs){
         cout<<"Adding instruments >>>> ";
 
-        if(GuitarSpec *spec = dynamic_cast<GuitarSpec*>(specs)){
+        if(GuitarSpec *spec == dynamic_cast<GuitarSpec*>(specs)){
             cout<<"It is a Guitar...."<<endl;
             Guitar instrument=Guitar(serial,price,spec);// why didnt i do Instruments *instrument= new Guitar(...) & how is the present thing working. can we send an object of derived class and save it in base classes container.
             instruments.push_back(instrument);
             //return true;
         }
-        else if(MandolinSpec *spec = dynamic_cast<MandolinSpec*>(specs)){
+        else if(MandolinSpec *spec == dynamic_cast<MandolinSpec*>(specs)){
             cout<<"It is a Mandolin..."<<endl;
             Mandolin instrument=Mandolin(serial,price,spec);
             instruments.push_back(instrument);
@@ -209,7 +209,7 @@ public:
     vector<Instruments> searchInstrument(InstrumentSpecs *specs){
         vector<Instruments> lst;
         cout<<"Searching..."<<endl;
-        if(GuitarSpec *spec= dynamic_cast<GuitarSpec*>(specs)){
+        if(GuitarSpec *spec==dynamic_cast<GuitarSpec*>(specs)){
             cout<<"Search in Guitars...."<<endl;
             for(unsigned int i=0;i<instruments.size();i++){
                 InstrumentSpecs *ptr=instruments[i].getSpecs();
@@ -219,7 +219,7 @@ public:
                 }
             }
         }
-        else if(MandolinSpec *spec=dynamic_cast<MandolinSpec*>(specs)){
+        else if(MandolinSpec *spec==dynamic_cast<MandolinSpec*>(specs)){
             cout<<"Search in Mandolins..."<<endl;
             for(unsigned int i=0;i<instruments.size();i++){
                 InstrumentSpecs *ptr=instruments[i].getSpecs();
